@@ -1,0 +1,542 @@
+<!-- Save this file as index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Farhan Ahmed — Email Marketing & Figma Email Design Expert</title>
+  <meta name="description" content="Farhan Ahmed — Email Marketing Specialist & Figma Email Designer. High-converting email campaigns, premium Figma templates, copywriting, analytics." />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/2d7f4b5b2a.js" crossorigin="anonymous"></script>
+  <style>
+    /* =========================
+       Variables & Base
+       ========================= */
+    :root{
+      --bg:#06060a;
+      --card:#0f1117;
+      --muted:#9aa3b2;
+      --glass: rgba(255,255,255,0.03);
+      --neon-teal: #00f0c8;
+      --neon-gold: #f6c85f;
+      --neon-green: #00e676;
+      --accent: linear-gradient(135deg,var(--neon-teal),var(--neon-gold));
+      --glass-border: rgba(255,255,255,0.04);
+      --glass-strong: rgba(255,255,255,0.06);
+      --max-width: 1100px;
+      --radius: 14px;
+      --ease: cubic-bezier(.2,.9,.3,1);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,240,200,0.04), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(246,200,95,0.03), transparent),
+                  var(--bg);
+      color: #e8eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+
+    /* Container */
+    .container{max-width:var(--max-width);margin:0 auto;padding:36px 20px;}
+
+    /* Header / Nav */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:44px;height:44px;border-radius:10px;object-fit:cover;box-shadow:0 6px 24px rgba(0,0,0,0.6)}
+    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:0.2px}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px;padding:8px;border-radius:8px}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
+    .cta-btn{background:var(--accent);padding:10px 14px;border-radius:12px;color:#041014;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .cta-btn:active{transform:translateY(1px)}
+
+    /* Hero */
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px;
+      position:relative;padding:28px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);
+      border:1px solid var(--glass-border);backdrop-filter: blur(6px);
+    }
+    .hero-left h2{font-size:34px;margin:0 0 10px 0;line-height:1.05}
+    .hero-left p{color:var(--muted);margin:0 0 18px 0;font-size:15px}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-outline{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#d9e6f2;font-weight:700;cursor:pointer}
+    .stats{display:flex;gap:18px;margin-top:18px}
+    .stat{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:10px;border-radius:12px;min-width:110px;text-align:center;border:1px solid rgba(255,255,255,0.03)}
+    .stat h3{margin:0;font-size:18px}
+    .stat p{margin:4px 0 0 0;color:var(--muted);font-size:13px}
+
+    /* Hero Right Card (photo + floating icons) */
+    .hero-card{position:relative;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);padding:18px;border:1px solid rgba(255,255,255,0.03)}
+    .profile-photo{width:100%;height:280px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#0b0d13, #0d0f15);display:flex;align-items:center;justify-content:center}
+    .profile-photo img{max-width:100%;max-height:100%;object-fit:cover;opacity:0.95;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.6))}
+    .floating-icons{position:absolute;left:-30px;top:40px;display:flex;flex-direction:column;gap:14px}
+    .float{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg, rgba(255,255,255,0.02), transparent);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+    .float svg{width:28px;height:28px;opacity:0.95}
+
+    /* Sections */
+    section{margin-top:34px}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .section-title h3{margin:0;font-size:18px}
+    .section-title p{color:var(--muted);font-size:13px;margin:0}
+
+    /* Skills Grid */
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .skill-card{background:var(--card);padding:14px;border-radius:12px;border:1px solid var(--glass-border);display:flex;align-items:center;gap:12px}
+    .skill-card i{font-size:20px;color:var(--neon-teal);width:40px;text-align:center}
+    .skill-card h4{margin:0;font-size:15px}
+    .skill-card p{margin:4px 0 0 0;color:var(--muted);font-size:13px}
+
+    /* Timeline */
+    .timeline{display:flex;flex-direction:column;gap:12px}
+    .timeline-card{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .timeline-dot{width:12px;height:12px;border-radius:50%;background:var(--neon-gold);margin-top:8px;flex-shrink:0}
+    .timeline-card h4{margin:0;font-size:15px}
+    .timeline-card p{color:var(--muted);margin:6px 0 0 0;font-size:13px}
+
+    /* Case Studies */
+    .grid-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .case{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .28s var(--ease)}
+    .case img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+    .case h4{margin:10px 0 0 0}
+    .case p{color:var(--muted);margin:6px 0 0 0;font-size:13px}
+    .case:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+
+    /* Tools row */
+    .tools{display:flex;gap:12px;flex-wrap:wrap}
+    .tool{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg, rgba(255,255,255,0.02), transparent);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03);flex-direction:column;padding:8px}
+    .tool img{width:38px;height:38px;object-fit:contain}
+    .tool small{color:var(--muted);margin-top:8px}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .test-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:flex-start}
+    .avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--neon-teal),var(--neon-gold));display:flex;align-items:center;justify-content:center;font-weight:700;color:#041014}
+
+    /* Footer */
+    footer{margin-top:40px;padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+    footer .footer-left{display:flex;gap:14px;align-items:center}
+    footer .footer-left h4{margin:0}
+    footer .footer-right button{padding:12px 16px;border-radius:12px;border:none;background:var(--accent);color:#041014;font-weight:700;cursor:pointer}
+
+    /* Modal (Hire Me) */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+    .modal{width:100%;max-width:720px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.04);position:relative}
+    .modal h3{margin:0 0 8px 0}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-field{display:flex;flex-direction:column;gap:6px}
+    label{font-size:13px;color:var(--muted)}
+    input[type="text"],input[type="email"],select,textarea{
+      padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e8eef6;outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .modal .submit{margin-top:12px;padding:12px 16px;border-radius:12px;border:none;background:var(--neon-teal);color:#041014;font-weight:700;cursor:pointer}
+    .close-btn{position:absolute;right:12px;top:12px;background:transparent;border:none;color:var(--muted);font-size:18px;cursor:pointer}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;row-gap:18px}
+      .grid-cases{grid-template-columns:repeat(2,1fr)}
+      .skills{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .container{padding:20px 14px}
+      .grid-cases{grid-template-columns:1fr}
+      .hero-left h2{font-size:26px}
+    }
+
+    /* Floating animations (simple) */
+    @keyframes floatY {
+      0% { transform: translateY(0px) }
+      50% { transform: translateY(-10px) }
+      100% { transform: translateY(0px) }
+    }
+    .float { animation: floatY 4s var(--ease) infinite; }
+    .float:nth-child(2){ animation-delay:0.5s }
+    .float:nth-child(3){ animation-delay:1s }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img src="assets/photo.png" alt="Farhan logo / photo" />
+        <div>
+          <h1>Farhan Ahmed</h1>
+          <div style="color:var(--muted);font-size:13px">Email Marketing & Figma Email Designer</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#tools">Tools</a>
+        <a href="#testimonials">Testimonials</a>
+        <button class="cta-btn" id="hireBtn">Hire Me</button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero" role="main" aria-label="Hero">
+      <div class="hero-left">
+        <h2>Email Marketing & Figma Email Design Expert</h2>
+        <p>Crafting high-converting email campaigns & designing premium templates that boost engagement and conversions. Fast turnarounds — polished, responsive Figma templates ready for development.</p>
+
+        <div class="hero-ctas">
+          <button class="cta-btn" id="viewWorkBtn">View My Work</button>
+          <button class="btn-outline" id="downloadBtn">Download Resume</button>
+        </div>
+
+        <div class="stats" aria-hidden>
+          <div class="stat">
+            <h3>3+ yrs</h3><p>Experience</p>
+          </div>
+          <div class="stat">
+            <h3>100+</h3><p>Campaigns Designed</p>
+          </div>
+          <div class="stat">
+            <h3>30%↑</h3><p>Avg Engagement Lift</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-hidden>
+        <div class="floating-icons" style="left: -40px;">
+          <div class="float" title="Figma">
+            <!-- Figma icon (placeholder) -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs></defs><path d="M12 12.5A2.5 2.5 0 1 1 12 7.5" stroke="#00f0c8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="float">
+            <i class="fas fa-envelope" style="color:var(--neon-gold)"></i>
+          </div>
+          <div class="float">
+            <i class="fas fa-chart-line" style="color:var(--neon-teal)"></i>
+          </div>
+        </div>
+
+        <div class="profile-photo">
+          <!-- placeholder photo: replace with your professional photo -->
+          <img src="assets/photo.png" alt="Farhan Ahmed — placeholder photo">
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div>
+            <strong>Farhan Ahmed</strong>
+            <div style="color:var(--muted);font-size:13px">Email Marketing & Figma Email Designer</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:700">Karachi, PK</div>
+            <div style="color:var(--muted);font-size:12px">farhan@totebreeze.com</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- WHAT I DO -->
+    <section id="what" aria-labelledby="what-title">
+      <div class="section-title">
+        <h3 id="what-title">What I Do</h3>
+        <p>Services & specialities I offer</p>
+      </div>
+
+      <div class="skills">
+        <div class="skill-card">
+          <i class="fas fa-bullseye"></i>
+          <div>
+            <h4>Email campaign strategy & execution</h4>
+            <p>Plan and run lifecycle campaigns, newsletters, and promotional flows with measurable KPIs.</p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fab fa-figma"></i>
+          <div>
+            <h4>Figma email template design</h4>
+            <p>Responsive, modular templates built in Figma for easy handoff to developers or builders.</p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-pencil-alt"></i>
+          <div>
+            <h4>High-converting email copywriting</h4>
+            <p>Short, direct email copy that converts — subject lines, preheaders, CTAs and offers.</p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-chart-pie"></i>
+          <div>
+            <h4>Campaign analytics & reporting</h4>
+            <p>Performance reports, cohort analysis, and iterative improvements to increase ROI.</p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-vial"></i>
+          <div>
+            <h4>A/B testing & segmentation</h4>
+            <p>Hypothesis-driven tests to refine messaging and audience targeting for maximum lift.</p>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <h4>Automation & workflows</h4>
+            <p>Automated lifecycle flows, welcome sequences, winback campaigns and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="exp-title">
+      <div class="section-title">
+        <h3 id="exp-title">Experience</h3>
+        <p>Roles, responsibilities & highlights</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-card">
+          <div class="timeline-dot"></div>
+          <div>
+            <h4>GE Solutions — Email Marketing & Figma Designer</h4>
+            <p style="color:var(--muted)">Apr 2023 — Present</p>
+            <p style="margin-top:6px;color:var(--muted);font-size:13px">
+              Designed modular Figma email templates, led campaign builds, and partnered with product & marketing to increase conversions. Key achievements: improved click-through rates by optimizing CTAs and layout.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-dot" style="background:var(--neon-teal)"></div>
+          <div>
+            <h4>Digix Solutions — Email Marketing Associate</h4>
+            <p style="color:var(--muted)">Feb 2022 — Mar 2023</p>
+            <p style="margin-top:6px;color:var(--muted);font-size:13px">
+              Managed end-to-end campaigns, wrote conversion-driven copy, and produced performance reports to guide future strategies.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-card">
+          <div class="timeline-dot" style="background:var(--neon-gold)"></div>
+          <div>
+            <h4>Community Care Initiative — Volunteer Email Marketing Coordinator</h4>
+            <p style="color:var(--muted)">May 2024 — Aug 2024</p>
+            <p style="margin-top:6px;color:var(--muted);font-size:13px">
+              Designed awareness campaigns and donor outreach emails in Figma — increased donations and community engagement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="work" aria-labelledby="work-title">
+      <div class="section-title">
+        <h3 id="work-title">Portfolio Case Studies</h3>
+        <p>Selected work: templates, analytics & results</p>
+      </div>
+
+      <div class="grid-cases">
+        <div class="case">
+          <img src="assets/case1.png" alt="Case Study 1 — Email template design">
+          <h4>Product Launch Email Series</h4>
+          <p>Figma-designed responsive templates + A/B tested subject lines. Result: 28% uplift in open rate.</p>
+        </div>
+
+        <div class="case">
+          <img src="assets/case2.png" alt="Case Study 2 — Newsletter redesign">
+          <h4>Monthly Newsletter Redesign</h4>
+          <p>Modular template system for rapid content updates and consistent brand experience across campaigns.</p>
+        </div>
+
+        <div class="case">
+          <img src="assets/case3.png" alt="Case Study 3 — Performance analytics">
+          <h4>Lifecycle Flow Optimization</h4>
+          <p>Improved onboarding sequence — increased first-purchase conversion by 19% through segmentation and copy changes.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tools" aria-labelledby="tools-title">
+      <div class="section-title">
+        <h3 id="tools-title">Tools & Technologies</h3>
+        <p>Platforms I use daily</p>
+      </div>
+
+      <div class="tools">
+        <div class="tool"><img src="assets/logo-figma.svg" alt="Figma"><small>Figma</small></div>
+        <div class="tool"><img src="assets/logo-klaviyo.svg" alt="Klaviyo"><small>Klaviyo</small></div>
+        <div class="tool"><img src="assets/logo-mailchimp.svg" alt="Mailchimp"><small>Mailchimp</small></div>
+        <div class="tool"><img src="assets/logo-analytics.svg" alt="Analytics"><small>Analytics</small></div>
+        <div class="tool"><img src="assets/logo-notion.svg" alt="Notion"><small>Notion / Airtable</small></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" aria-labelledby="test-title">
+      <div class="section-title">
+        <h3 id="test-title">Testimonials</h3>
+        <p>Feedback mockups & client impressions</p>
+      </div>
+
+      <div class="testimonials">
+        <div class="test-card">
+          <div class="avatar">F</div>
+          <div>
+            <strong>Farhan elevated our email engagement instantly.</strong>
+            <p style="color:var(--muted);margin-top:8px">Clean templates, quick iterations, and clear reporting. Campaigns improved within the first two sends.</p>
+          </div>
+        </div>
+
+        <div class="test-card">
+          <div class="avatar">A</div>
+          <div>
+            <strong>Clean, professional Figma templates delivered fast.</strong>
+            <p style="color:var(--muted);margin-top:8px">Hand-off was effortless — devs loved the organized Figma components.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FOOTER -->
+    <footer>
+      <div class="footer-left">
+        <div>
+          <h4>Let’s Build High-Converting Email Campaigns Together.</h4>
+          <div style="color:var(--muted);font-size:13px">Available for freelance & contract work</div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <button id="hireBtnFooter">Hire Me</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- HIRE ME MODAL -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-btn" id="closeModal"><i class="fas fa-times"></i></button>
+      <h3 id="modalTitle">Let’s Begin Your Project</h3>
+      <p style="color:var(--muted);margin-top:6px">Please share a few project details — I usually reply within 1–3 hours.</p>
+
+      <!-- NOTE: Replace the action with your Formspree endpoint or server endpoint -->
+      <form id="hireForm" method="POST" action="https://formspree.io/f/your-form-id" target="_blank">
+        <div class="form-grid" style="margin-top:12px">
+          <div class="form-field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+          </div>
+
+          <div class="form-field">
+            <label for="service">What service do you need?</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Email Marketing</option>
+              <option>Figma Email Template Design</option>
+              <option>Email Copywriting</option>
+              <option>Automation / Flows</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget" required>
+              <option value="">Select</option>
+              <option>$50 - $150</option>
+              <option>$150 - $300</option>
+              <option>$300 - $600</option>
+              <option>$600+</option>
+            </select>
+          </div>
+
+          <div class="form-field" style="grid-column:1 / -1">
+            <label for="desc">Short Project Description</label>
+            <textarea id="desc" name="description" placeholder="Briefly, what do you need?" required></textarea>
+          </div>
+
+          <div class="form-field">
+            <label for="deadline">Deadline</label>
+            <select id="deadline" name="deadline" required>
+              <option value="">Select</option>
+              <option>Urgent (24-48 hours)</option>
+              <option>3-7 days</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="attachment">Attachment (optional)</label>
+            <input id="attachment" name="attachment" type="text" placeholder="Dropbox / Google Drive link" />
+            <small style="color:var(--muted)">Add a link to examples or files (optional)</small>
+          </div>
+
+        </div>
+
+        <button type="submit" class="submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Minimal JS for interactivity: modal, smooth scroll, form success handling
+    (function(){
+      const modal = document.getElementById('modal');
+      const hireBtn = document.getElementById('hireBtn');
+      const hireBtnFooter = document.getElementById('hireBtnFooter');
+      const closeModal = document.getElementById('closeModal');
+      const viewWorkBtn = document.getElementById('viewWorkBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      function openModal(){ modal.style.display = 'flex'; document.body.style.overflow='hidden'; }
+      function close(){ modal.style.display = 'none'; document.body.style.overflow='auto'; }
+
+      hireBtn && hireBtn.addEventListener('click', openModal);
+      hireBtnFooter && hireBtnFooter.addEventListener('click', openModal);
+      closeModal.addEventListener('click', close);
+      modal.addEventListener('click', (e)=>{ if(e.target===modal) close(); });
+
+      viewWorkBtn && viewWorkBtn.addEventListener('click', ()=>{ document.querySelector('#work').scrollIntoView({behavior:'smooth'}); });
+      downloadBtn && downloadBtn.addEventListener('click', ()=>{ window.open('assets/Farhan_Ahmed_Resume.pdf','_blank') });
+
+      // Basic form validation + feedback
+      const form = document.getElementById('hireForm');
+      form.addEventListener('submit', function(e){
+        // default sends to the action URL; we add confirmation
+        // If you want AJAX, replace this with fetch to your backend.
+        alert('Thanks — your request will be sent. I will review and reply within 1–3 hours.');
+        close();
+      });
+
+      // Smooth scrolling for internal nav links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          const id = this.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if(el) el.scrollIntoView({behavior:'smooth'});
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
